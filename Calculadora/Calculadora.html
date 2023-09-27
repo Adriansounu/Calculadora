@@ -7,10 +7,12 @@
   <h1>Calculadora</h1>
   
   <input type="number" id="num1" placeholder="Número 1">
-  <input type="number" id="num2" placeholder="Número 2">
+  <input type="number" id "num2" placeholder="Número 2">
 
   <button onclick="realizarOperacion('sumar')">Sumar</button>
   <button onclick="realizarOperacion('restar')">Restar</button>
+  <button onclick="realizarOperacion('multiplicar')">Multiplicar</button>
+  <button onclick="realizarOperacion('dividir')">Dividir</button>
 
   <h2>Resultado: <span id="resultado">0</span></h2>
 
@@ -25,13 +27,26 @@
         return;
       }
 
-      if (operacion === 'sumar') {
-        resultado = num1 + num2;
-      } else if (operacion === 'restar') {
-        resultado = num1 - num2;
-      } else {
-        alert('Operación no válida.');
-        return;
+      switch (operacion) {
+        case 'sumar':
+          resultado = num1 + num2;
+          break;
+        case 'restar':
+          resultado = num1 - num2;
+          break;
+        case 'multiplicar':
+          resultado = num1 * num2;
+          break;
+        case 'dividir':
+          if (num2 === 0) {
+            alert('No se puede dividir por cero.');
+            return;
+          }
+          resultado = num1 / num2;
+          break;
+        default:
+          alert('Operación no válida.');
+          return;
       }
 
       document.getElementById('resultado').innerText = resultado;
