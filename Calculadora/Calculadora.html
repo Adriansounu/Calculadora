@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Calculadora</title>
+</head>
+<body>
+  <h1>Calculadora</h1>
+  
+  <input type="number" id="num1" placeholder="Número 1">
+  <input type="number" id="num2" placeholder="Número 2">
+
+  <button onclick="realizarOperacion('sumar')">Sumar</button>
+  <button onclick="realizarOperacion('restar')">Restar</button>
+
+  <h2>Resultado: <span id="resultado">0</span></h2>
+
+  <script>
+    function realizarOperacion(operacion) {
+      var num1 = parseFloat(document.getElementById('num1').value);
+      var num2 = parseFloat(document.getElementById('num2').value);
+      var resultado;
+
+      if (isNaN(num1) || isNaN(num2)) {
+        alert('Ingrese números válidos.');
+        return;
+      }
+
+      if (operacion === 'sumar') {
+        resultado = num1 + num2;
+      } else if (operacion === 'restar') {
+        resultado = num1 - num2;
+      } else {
+        alert('Operación no válida.');
+        return;
+      }
+
+      document.getElementById('resultado').innerText = resultado;
+    }
+  </script>
+</body>
+</html>
