@@ -57,6 +57,9 @@
       }
   
       document.getElementById('resultado').innerText = resultado;
+      // Leer el resultado en voz
+      var utterance = new SpeechSynthesisUtterance('El resultado es ' + resultado);
+      speechSynthesis.speak(utterance);
     }
   </script>
 </body>
