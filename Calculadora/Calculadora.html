@@ -3,17 +3,15 @@
 <head>
   <title>Calculadora</title>
   <link rel="stylesheet" type="text/css" href="css/Calculadora.css">
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
   <div class="calculator-container animate__animated animate__bounceInDown">
     <h1 class="animate__animated animate__bounceInDown">Calculadora</h1>
     
-    <input type="number" id="num1" placeholder="Número 1">
-    <input type="number" id="num2" placeholder="Número 2">
+    <input type="number" id="num1" placeholder="Numero 1">
+    <input type="number" id="num2" placeholder="Numero 2">
 
     <button onclick="realizarOperacion('sumar')">Sumar</button>
     <button onclick="realizarOperacion('restar')">Restar</button>
@@ -38,7 +36,6 @@
 </center>
   <button onclick="moverBoca()">Mover Boca</button>
 
-
   <script>
     function realizarOperacion(operacion) {
       var num1 = parseFloat(document.getElementById('num1').value);
@@ -46,7 +43,11 @@
       var resultado;
   
       if (isNaN(num1) || isNaN(num2)) {
-        alert('Ingrese números válidos.');
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'Ingrese números válidos.'
+        });
         return;
       }
   
@@ -62,27 +63,34 @@
           break;
         case 'dividir':
           if (num2 === 0) {
-            alert('No se puede dividir por cero.');
+            Swal.fire({
+              icon: 'error',
+              title: 'Error',
+              text: 'No se puede dividir por cero.'
+            });
             return;
           }
           resultado = num1 / num2;
           break;
         default:
-          alert('Operación no válida.');
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'Operación no válida.'
+          });
           return;
       }
   
       document.getElementById('resultado').innerText = resultado;
-      // Leer el resultado en voz
       var utterance = new SpeechSynthesisUtterance('El resultado es ' + resultado);
       speechSynthesis.speak(utterance);
     }
+
     function moverBoca() {
-    var boca = document.getElementById('boca');
-    boca.style.animation = 'hablar 0.5s infinite alternate';
-    boca.style.animationPlayState = 'running';
-  }
-  
+      var boca = document.getElementById('boca');
+      boca.style.animation = 'hablar 0.5s infinite alternate';
+      boca.style.animationPlayState = 'running';
+    }
   </script>
 </body>
 </html>
