@@ -2,31 +2,38 @@
 <html>
 <head>
   <title>Calculadora</title>
+  <link rel="stylesheet" type="text/css" href="css/Calculadora.css">
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
 </head>
 <body>
-  <h1>Calculadora</h1>
-  
-  <input type="number" id="num1" placeholder="Número 1">
-  <input type="number" id "num2" placeholder="Número 2">
+  <div class="calculator-container animate__animated animate__bounceInDown">
+    <h1 class="animate__animated animate__bounceInDown">Calculadora</h1>
+    
+    <input type="number" id="num1" placeholder="Número 1">
+    <input type="number" id="num2" placeholder="Número 2">
 
-  <button onclick="realizarOperacion('sumar')">Sumar</button>
-  <button onclick="realizarOperacion('restar')">Restar</button>
-  <button onclick="realizarOperacion('multiplicar')">Multiplicar</button>
-  <button onclick="realizarOperacion('dividir')">Dividir</button>
+    <button onclick="realizarOperacion('sumar')">Sumar</button>
+    <button onclick="realizarOperacion('restar')">Restar</button>
+    <button onclick="realizarOperacion('multiplicar')">Multiplicar</button>
+    <button onclick="realizarOperacion('dividir')">Dividir</button>
 
-  <h2>Resultado: <span id="resultado">0</span></h2>
+    <h2>Resultado: <span id="resultado">0</span></h2>
+  </div>
 
   <script>
     function realizarOperacion(operacion) {
       var num1 = parseFloat(document.getElementById('num1').value);
       var num2 = parseFloat(document.getElementById('num2').value);
       var resultado;
-
+  
       if (isNaN(num1) || isNaN(num2)) {
         alert('Ingrese números válidos.');
         return;
       }
-
+  
       switch (operacion) {
         case 'sumar':
           resultado = num1 + num2;
@@ -48,7 +55,7 @@
           alert('Operación no válida.');
           return;
       }
-
+  
       document.getElementById('resultado').innerText = resultado;
     }
   </script>
