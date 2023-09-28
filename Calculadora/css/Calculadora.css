@@ -63,4 +63,74 @@ body {
     margin-top: 20px;
     animation: zoomIn 0.5s;
   }
+  #profesor {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: #f7dc6f;
+    border-radius: 50%;
+  }
+  
+  #cabeza {
+    position: absolute;
+    top: 30px;
+    left: 50px;
+  }
+  
+  #ojo1, #ojo2 {
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+    border-radius: 50%;
+    position: absolute;
+    top: 40px;
+  }
+  
+  #ojo1 {
+    left: 30px;
+  }
+  
+  #ojo2 {
+    right: 30px;
+  }
+  
+  #boca {
+    width: 100px;
+    height: 20px;
+    background-color: #000;
+    position: absolute;
+    top: 150px;
+    left: 50px;
+  }
+  
+  #sombrero {
+    width: 120px;
+    height: 80px;
+    background-color: black;
+    position: absolute;
+    top: -40px;
+    left: 40px;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+  }
+  
+  #borla {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    top: -15px;
+    left: 45px;
+  }
+  
+  @keyframes hablar {
+    0% {
+      transform: scaleX(1);
+    }
+    100% {
+      transform: scaleX(1.2);
+    }
+  }
+  
   
