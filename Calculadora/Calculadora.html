@@ -22,6 +22,22 @@
 
     <h2>Resultado: <span id="resultado">0</span></h2>
   </div>
+  <br>
+  <br>
+  <center>
+  <div id="profesor">
+    <div id="cabeza">
+      <div id="ojo1"></div>
+      <div id="ojo2"></div>
+    </div>
+    <div id="boca"></div>
+    <div id="sombrero">
+      <div id="borla"></div>
+    </div>
+  </div>
+</center>
+  <button onclick="moverBoca()">Mover Boca</button>
+
 
   <script>
     function realizarOperacion(operacion) {
@@ -61,6 +77,12 @@
       var utterance = new SpeechSynthesisUtterance('El resultado es ' + resultado);
       speechSynthesis.speak(utterance);
     }
+    function moverBoca() {
+    var boca = document.getElementById('boca');
+    boca.style.animation = 'hablar 0.5s infinite alternate';
+    boca.style.animationPlayState = 'running';
+  }
+  
   </script>
 </body>
 </html>
